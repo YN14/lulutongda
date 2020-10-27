@@ -1,0 +1,64 @@
+
+.body{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.color-text{
+    color: rgb(250,184,9);
+}
+.info-list>li{
+    padding: 10px 20px;
+    background-color: rgb(247,247,247);
+}
+.info-list>:nth-child(2n){
+    background-color: rgb(237,237,237);
+}
+.info-list>:nth-child(1)>.title{
+    font-size: 24px;
+    margin-right: 30px;
+}
+
+.select-card{
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+}
+.select-card>li{
+    padding: 10px 20px;
+    background-color: #fff;
+    color: rgb(27,172,5);
+    border-radius: 15px;
+    box-shadow: 1px 1px #ccc;
+}
+.select-card>.selected{
+    background-color: rgb(27,172,5);
+    color: #fff;
+}
+.insure-info{
+    display: block;
+}
+.insurant-info{
+    display: none;
+}
+.benefit-info{
+    display: none;
+}
+
+.info>li{
+    padding: 10px 20px;
+    display: flex;
+    column-gap: 10px;
+}
+.info>li>label{
+    display: inline-block;
+    width: 100px;
+}
+
+.button{
+    margin: 0 20px;
+}
+.exit{
+    background-color: rgb(157,160,157);
+}

@@ -1,0 +1,50 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-21 15:28:32
+ * @LastEditTime: 2020-10-27 14:00:41
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \TS Expressd:\code\lulutong\claim-list.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理赔列表</title>
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/claim-detail.css">
+    
+</head>
+
+<body>
+    <div class="box">
+        <div class="top-title">理赔信息详情</div>
+        <div class="body">
+            <div class="information">
+                <div class="card-num-box">卡号 : <span class="card-num">511111111</span></div>
+            </div>
+            <ul class="detail"></ul>
+            <div class="erro erro-text-box"></div>
+            <a id="go-claim-list" class="button" href="javascript:;">查看理赔列表</a>
+            <a id="exit" class="button exit" href="javascript:;">安全退出</a>
+        </div>
+        <div class="exit-alert-box">
+            <div class="my-exit-alert">
+                <p class="title">你已点击安全退出</p>
+                <div class="buttons">
+                    <a class="button" id="go-index" href="javascript:;">首页</a>
+                    <a class="button" id="go-login" href="javascript:;">服务卡登录</a>
+                    <a class="button" id="cancel" href="javascript:;">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/config.js"></script>
+    <script src="./js/ajax.js"></script>
+    <script src="./js/judge-clear-storage.js"></script>
+    <script src="./js/claim-detail.js"></script>
+</body>
+
+</html>

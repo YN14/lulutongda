@@ -1,0 +1,198 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-21 15:26:58
+ * @LastEditTime: 2020-10-27 16:14:56
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \TS Expressd:\code\lulutong\fillout-user-msg.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>填写信息</title>
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css./fillout-information.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="top-title">
+            <ul class="step">
+                <li>
+                    <span class="circle">1</span>
+                    卡号密码
+                </li>
+                <li>
+                    <span class="circle">2</span>
+                    阅读条款
+                </li>
+                <li>
+                    <span class="circle now">3</span>
+                    信息填写
+                </li>
+                <li>
+                    <span class="circle">4</span>
+                    完成激活
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            <div class="information">
+                <div class="card-num-box">卡号 : <span class="card-num">511111111</span></div>
+                <div class="tip-box">
+                    被保人年龄区间：18至70周岁
+                </div>
+            </div>
+            <div class="forms">
+                <div class="insure-box">
+                    <div class="form-title">投保人信息</div>
+                    <ul class="insure-form form">
+                        <li>
+                            <span>姓名</span>
+                            <input id="insure-name" class="insure-name name" type="text" value="">
+                            <div class="insure-name-erro erro-text-box"></div>
+                        </li>
+                        <li>
+                            <span>证件类型</span>
+                            <select class="ID-type" id="insure-ID-type">
+                                <option selected value="身份证">身份证</option>
+                                <option value="二代居民身份证">二代居民身份证</option>
+                                <option value="居民身份证">居民身份证</option>
+                                <option value="大陆身份证">大陆身份证</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>证件号码</span>
+                            <input id="insure-ID" class="insure-ID-num ID-num" type="text" value="">
+                            <div class="insure-ID-erro erro-text-box"></div>
+                        </li>
+                        <li>
+                            <span>性别</span>
+                            <label><input type="radio" class="insure-sex sex" name="insure-sex" value="男生">男生</label>
+                            <label><input type="radio" class="insure-sex sex" name="insure-sex" value="女生">女生</label>
+                        </li>
+                        <li>
+                            <span>出生日期</span>
+                            <input class="insure-birth-date" type="date" value="" />
+                        </li>
+                        <li>
+                            <div>本卡生效时年龄<span class="insure-age">&nbsp;&nbsp;&nbsp;</span>周岁</div>
+                        </li>
+                        <li>
+                            <span>电子邮件</span>
+                            <input id="insure-email" class="insure-email email" type="text" value="">
+                            <div class="insure-email-erro erro-text-box"></div>
+                        </li>
+                        <li>
+                            <span>手机号码</span>
+                            <input id="insure-phone" class="insure-phone phone" type="text" value="">
+                            <div class="insure-phone-erro erro-text-box"></div>
+                        </li>
+                        <li>
+                            <span>联系地址</span>
+                            <input id="insure-add" class="insure-Add add" type="text" value="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="insurant-box">
+                    <div class="form-title">被保人信息</div>
+                    <ul class="insurant-form form">
+                        <li>
+                            <span>是投保人</span>
+                            <select class="relation-type" id="relation-type">
+                                <option value="本人">本人</option>
+                                <option value="子女">子女</option>
+                                <option value="配偶">配偶</option>
+                                <option value="父母">父母</option>
+                                <option value="其它">其他</option>
+                                <option selected value="">-请选择-</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>姓名</span>
+                            <input id="insurant-name" class="insurant-name name insurant" type="text" value="">
+                            <div class="insurant-name-erro erro-text-box"></div>
+                        </li>
+                        <li>
+                            <span>证件类型</span>
+                            <select class="ID-type insurant" id="insurant-ID-type">
+                                <option selected value="身份证">身份证</option>
+                                <option value="二代居民身份证">二代居民身份证</option>
+                                <option value="居民身份证">居民身份证</option>
+                                <option value="大陆身份证">大陆身份证</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>证件号码</span>
+                            <input id="insurant-ID" class="insurant-ID-num ID-num insurant" type="text" value="">
+                            <div class="insurant-ID-erro erro-text-box"></div>
+                        </li>
+                        <li>
+                            <span>性别</span>
+                            <label><input type="radio" class="insurant-sex sex insurant" name="insurant-sex"
+                                    value="男生">男生</label>
+                            <label><input type="radio" class="insurant-sex sex insurant" name="insurant-sex"
+                                    value="女生">女生</label>
+                        </li>
+                        <li>
+                            <span>出生日期</span>
+                            <input class="insurant-birth-date insurant" type="date" value="" />
+                            <!-- <input class="insurant-date-birth" type="text" placeholder="选择"> -->
+                        </li>
+                        <li>
+                            <div>本卡生效时年龄<span class="insurant-age insurant">&nbsp;&nbsp;&nbsp;</span>周岁</div>
+                        </li>
+                        <li>
+                            <span>电子邮件</span>
+                            <input id="insurant-email" class="insurant-email email insurant" type="text" value="">
+                            <div class="insurant-email-erro erro-text-box"></div>
+                        </li>
+                        <li>
+                            <span>手机号码</span>
+                            <input id="insurant-phone" class="insurant-phone phone insurant" type="text" value="">
+                            <div class="insurant-phone-erro erro-text-box"></div>
+                        </li>
+                        <li>
+                            <span>联系地址</span>
+                            <input id="insurant-add" class="insurant-Add add insurant" type="text" value="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="benefit">
+                    <div class="form-title">收益人信息</div>
+                    <div class="benefit-box">
+                        <div>受益人为法定继承人</div>
+                        <div class="effective-date-tip"></div>
+                        <div class="effective-date-box">
+                            <span>生效日期</span>
+                            <input class="effective-date" type="date" value="" min="" max="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="undone-erro erro-text-box"></div>
+            <a id="go-insurance-msg" class="button" href="javascript:;">查看投保信息</a>
+            <a id="exit" class="button exit" href="javascript:;">安全退出</a>
+        </div>
+        <div class="exit-alert-box">
+            <div class="my-exit-alert">
+                <p class="title">你已点击安全退出</p>
+                <div class="buttons">
+                    <a class="button" id="go-index" href="javascript:;">首页</a>
+                    <a class="button" id="go-active" href="javascript:;">服务卡激活</a>
+                    <a class="button" id="cancel" href="javascript:;">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/config.js"></script>
+    <script src="./js/reg.js"></script>
+    <script src="./js/ajax.js"></script>
+    <script src="./js/judge-clear-storage.js"></script>
+    <script src="./js/fillout-information.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+/* 步骤 */
+.step{
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    font-size: 12px;
+}
+.step span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    text-align: center;
+    background-color: rgb(153,153,153);
+    border-radius: 50%;
+    color: #fff;
+}
+.step .now{
+    background-color: rgb(27,172,5);
+}
+
+.password-img{
+    width: 40px;
+    height: 40px;
+}
+
+.body{
+    padding: 40px 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+.button{
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}

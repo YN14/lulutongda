@@ -1,0 +1,11 @@
+.body{
+    padding: 10px;
+    display: flex;
+    column-gap: 0.667vw;
+}
+.body>a{
+    flex-grow: 1;
+    border-radius: 5px;
+    padding: 1.333vw 1.333vw;
+    background-color: rgb(27,172,5);
+}

@@ -1,0 +1,72 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-21 15:19:09
+ * @LastEditTime: 2020-10-27 14:08:44
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \lulutong\card-active.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务卡激活</title>
+    
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/card-active.css">
+    
+</head>
+<body>
+    <div class="box">
+        <div class="top-title">
+            <ul class="step">
+                <li>
+                    <span class="circle now">1</span>
+                    卡号密码
+                </li>
+                <li>
+                    <span class="circle">2</span>
+                    阅读条款
+                </li>
+                <li>
+                    <span class="circle">3</span>
+                    信息填写
+                </li>
+                <li>
+                    <span class="circle">4</span>
+                    完成激活
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            <input id="card-num" class="input" type="text" placeholder="卡号">
+
+            <div class="password-box">
+                <input id="card-pwd" class="input" type="password" placeholder="密码">
+                <img class="password-img" src="./images/pwdVisible.png">
+            </div>
+
+            <div class="auth-code-box">
+                <input id="auth-code" class="input" type="text" placeholder="验证码">
+                <img src="./php/authCode/validatecode.php" class="auth-code-img" alt="验证码">
+            </div>
+            <div class="card-num-erro erro-text-box"></div>
+            <div class="card-pwd-erro erro-text-box"></div>
+            <div class="auth-code-erro erro-text-box"></div>
+            <div class="card-erro erro-text-box"></div>
+            
+            <a class="button" href="javascript:;">下一步</a>
+            <div class="erro erro-text-box"></div>
+        </div>    
+    </div>
+    <!-- <script src="./js/config.js"></script> -->
+    <script src="./js/reg.js"></script>
+    <script src="./js/md5.js"></script>
+    <script src="./js/ajax.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/login-active-public.js"></script>
+    <script src="./js/judge-clear-storage.js"></script>
+    <script src="./js/card-active.js"></script>
+</body>
+</html>

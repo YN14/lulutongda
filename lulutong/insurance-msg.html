@@ -1,0 +1,56 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-21 15:29:19
+ * @LastEditTime: 2020-10-27 14:01:56
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \TS Expressd:\code\lulutong\insurance-msg.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投保信息</title>
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/insurance-msg.css">
+    
+</head>
+<body>
+    <div class="box">
+        <div class="top-title">投保信息</div>
+        <div class="body">
+            <ul class="info-list"></ul>
+            <ul class="select-card">
+                <li id="insure" class="selected select">投保人</li>
+                <li id="insurant" class="select">被保人</li>
+                <li id="benefit" class="select">受益人</li>
+            </ul>
+            <div class="insure-info"></div>
+            <div class="insurant-info"></div>
+            <div class="benefit-info">
+                <ul class="info">
+                    <li>受益人为法定继承人</li>
+                </ul>
+            </div>
+            <a id="go-claim-list" class="button" href="javascript:;">查看理赔信息</a>
+            <a id="exit" class="button exit" href="javascript:;">安全退出</a>
+        </div>
+        <div class="exit-alert-box">
+            <div class="my-exit-alert">
+                <p class="title">你已点击安全退出</p>
+                <div class="buttons">
+                    <a class="button" id="go-index" href="javascript:;">首页</a>
+                    <a class="button" id="go-active" href="javascript:;">激活</a>
+                    <a class="button" id="go-login" href="javascript:;">登录</a>
+                    <a class="button" id="cancel" href="javascript:;">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/config.js"></script>
+    <script src="./js/ajax.js"></script>
+    <script src="./js/judge-clear-storage.js"></script>
+    <script src="./js/insurance-msg.js"></script>
+</body>
+</html>

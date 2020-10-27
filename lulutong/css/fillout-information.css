@@ -1,0 +1,76 @@
+/* 步骤 */
+.step{
+    display: flex;
+    font-size: 12px;
+}
+.step>li{
+    flex-grow: 1;
+}
+.step span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    text-align: center;
+    background-color: rgb(153,153,153);
+    border-radius: 50%;
+    color: #fff;
+}
+.step .now{
+    background-color: rgb(27,172,5);
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.information{
+    padding: 1px 0;
+    background-color: rgb(247,247,247);
+}
+.card-num-box{
+    padding: 9px;
+}
+.tip-box{
+    padding: 9px;
+    background-color: rgb(237,237,237);
+}
+
+.forms{
+    padding: 0 15px;
+}
+.form-title{
+    padding: 10px 20px;
+    border-bottom: 2px solid rgb(27,172,5);
+}
+.form>li{
+    padding: 20px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
+}
+.form>li>span{
+    display: inline-block;
+    width: 100px;
+}
+.form>li>input,
+.form>li>select{
+    width: 45.133vw;
+    padding: 10px;
+}
+.benefit-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    padding: 10px;
+}
+
+.button{
+    margin: 0 20px;
+}
+.exit{
+    background-color: rgb(157,160,157);
+    margin-bottom: 150px;
+}

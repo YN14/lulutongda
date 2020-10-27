@@ -1,0 +1,39 @@
+.body{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+.information{
+    padding: 1px 0;
+    background-color: rgb(247,247,247);
+}
+.card-num{
+    padding: 9px;
+}
+.claim-box{
+    padding: 9px;
+    background-color: rgb(237,237,237);
+}
+.claim-list>li{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+.time{
+    display: flex;
+    justify-content: space-between;
+}
+.reason{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.button{
+    margin: 0 20px;
+}
+.exit{
+    background-color: rgb(157,160,157);
+}

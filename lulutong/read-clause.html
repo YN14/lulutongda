@@ -1,0 +1,104 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-21 15:25:46
+ * @LastEditTime: 2020-10-27 14:18:42
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \TS Expressd:\code\lulutong\read-clause.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阅读条款</title>
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/read-clause.css">
+    
+</head>
+
+<body>
+    <div class="box">
+        <div class="top-title">
+            <ul class="step">
+                <li>
+                    <span class="circle">1</span>
+                    卡号密码
+                </li>
+                <li>
+                    <span class="circle now">2</span>
+                    阅读条款
+                </li>
+                <li>
+                    <span class="circle">3</span>
+                    信息填写
+                </li>
+                <li>
+                    <span class="circle">4</span>
+                    完成激活
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            <!-- <div class="card-num-box">卡号 : <span class="card-num">511111111</span></div> -->
+            <ul class="info-list"></ul>
+            <iframe src="./clause.html"></iframe>
+            <ul class="clause-list">
+                <li>保险条款</li>
+                <li>
+                    <label>
+                        <input class="check" type="checkbox">
+                        <a href="">中国人寿保险股份有限公司短期保险基本条款</a>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input class="check" type="checkbox">
+                        <a href="">国寿通泰交通意外伤害保险( A款) ( 2013版)利益条款</a>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input class="check" type="checkbox">
+                        <a href="">国寿附加通泰交通意外费用补偿医疗保险利益条款</a>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input class="check-all" type="checkbox">
+                        <a>阅读全部保险条款</a>
+                    </label>
+                </li>
+            </ul>
+            <div class="declaration-box">
+                <h4>声明与授权:</h4>
+                <p>投保人本人已阅读本服务卡内容和条款内容，贵公司
+                    已对条款内容履行了说明义务，并对责任免除条款、特别
+                    约走条款、职业除外条款履行了明确说明义务，本人同意
+                    接受并遵守上述内容，自愿投保.本人谨此授权知道或
+                    拥有任何有关本人健康及其它情况的任何医生、医院、保险公司、其他机构人士，均可将有关资料提供给贵公司。</p>
+            </div>
+            <div class="erro-text-box"></div>
+            <a id="agree" class="button" href="javascript:;">我已阅读并同意上述产品内容及相关条款</a>
+            <a id="exit" class="button exit" href="javascript:;">安全退出</a>
+        </div>
+    </div>
+    <div class="exit-alert-box">
+        <div class="my-exit-alert">
+            <p class="title">你已点击安全退出</p>
+            <div class="buttons">
+                <a class="button" id="go-index" href="javascript:;">首页</a>
+                <a class="button" id="go-active" href="javascript:;">服务卡激活</a>
+                <a class="button" id="cancel" href="javascript:;">取消</a>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="./js/config.js"></script> -->
+    <script src="./js/ajax.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/judge-clear-storage.js"></script>
+    <script src="./js/read-clause.js"></script>
+</body>
+
+</html>
