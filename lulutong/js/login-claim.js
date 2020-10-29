@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-22 15:03:01
- * @LastEditTime: 2020-10-27 10:29:05
+ * @LastEditTime: 2020-10-29 10:10:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \lulutong\js\login-claim.js
@@ -10,6 +10,8 @@ var buttonDOM = document.querySelector(".button");//下一步
 
 // 清除缓存
 clearStorage();
+window.localStorage.setItem("source","login-claim");
+resetAuthCodeImg();
 
 // 给下一步按钮绑定点击事件
 addListenerOnNextBtn();
@@ -63,6 +65,7 @@ function request() {
                         if (re.state === true) {
                             // 卡号、密码、验证码均正确
                             cardNumSetInStorage(cardNum);
+                            // window.localStorage.setItem("source","login-claim");
                             toClaimListPage();
                         } else {
                             outputLoginError(re);

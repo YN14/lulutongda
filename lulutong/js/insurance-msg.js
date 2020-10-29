@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-22 14:39:12
- * @LastEditTime: 2020-10-27 14:03:45
+ * @LastEditTime: 2020-10-29 10:10:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \lulutong\js\insurance-msg.js
@@ -12,6 +12,14 @@ var exitAlertDOM = document.querySelector(".exit-alert-box");
 
 // 判断缓存是否有内容
 var cardNum = judgeStorage();
+// 检测源-claimList\insuranceLogin
+var sourceStr = judgeStorageSource();
+if(sourceStr != "claim-list" && sourceStr != "login-insurance" && sourceStr!="insurance-msg"){
+    alert("非法访问");
+    window.location.href = `/${sourceStr}.html`;
+}else{
+    window.localStorage.setItem("source","insurance-msg");
+}
 
 // 给选项卡项绑定事件
 addListenerOnSelectCardItems();
@@ -66,6 +74,7 @@ function addListenerOnBtns() {
         buttonsDOM[i].addEventListener("click", function () {
             let idStr = buttonsDOM[i].getAttribute("id");
             if (idStr === "go-claim-list") {
+                // window.localStorage.setItem("source","insurance-msg");
                 // 点击查看理赔信息按钮 跳转到理赔列表页
                 window.location.href = "/claim-list.html";
             } else if (idStr === "exit") {
@@ -74,7 +83,7 @@ function addListenerOnBtns() {
             } else if (idStr === "go-index") {
                 // 点击首页按钮跳转到首页
                 clearStorage();
-                window.location.href = "http://127.0.0.1:5500/";
+                window.location.href = "/index.html";
 
             } else if (idStr === "go-active") {
                 // 点击服务卡激活按钮跳转到激活页面

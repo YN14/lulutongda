@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-22 11:49:05
- * @LastEditTime: 2020-10-27 16:33:05
+ * @LastEditTime: 2020-10-29 10:04:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \lulutong\js\read-clause.js
@@ -13,6 +13,13 @@ var checkItemsDOM = document.querySelectorAll(".check");
 
 // 判断缓存是否有内容
 var cardNum = judgeStorage();
+var sourceStr = judgeStorageSource();
+if(sourceStr != "card-active" && sourceStr != "read-clause"){
+    alert("非法访问");
+    window.location.href = `/${sourceStr}.html`;
+}else{
+    window.localStorage.setItem("source","read-clause");
+}
 
 // 勾选一项
 addClickListenerOnCheckOneDOM();
@@ -62,6 +69,7 @@ function addEventListenerOnBtns() {
             if (idStr === "agree") {
                 //判断check是否都已勾选
                 if (checkAllDOM.checked === true) {
+                    // window.localStorage.href("source","read-clause");
                     // 都已勾选跳转到信息填写页
                     window.location.href = "/fillout-information.html";
                 } else {
@@ -73,7 +81,7 @@ function addEventListenerOnBtns() {
             } else if (idStr === "go-index") {
                 // 点击首页按钮跳转到首页
                 clearStorage();
-                window.location.href = "http://127.0.0.1:5500/";
+                window.location.href = "/index.html";
 
             } else if (idStr === "go-active") {
                 // 点击服务卡激活按钮跳转到激活页面

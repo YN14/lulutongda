@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-22 14:55:15
- * @LastEditTime: 2020-10-27 14:03:00
+ * @LastEditTime: 2020-10-29 10:03:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \lulutong\js\claim-list.js
@@ -12,6 +12,15 @@ var exitAlertDOM = document.querySelector(".exit-alert-box");
 // 判断缓存是否有内容
 var cardNum = judgeStorage();
 var causeId = window.localStorage.getItem("causeId");
+// 检测源-claimList
+var sourceStr = judgeStorageSource();
+if(sourceStr != "claim-list" && sourceStr != "claim-detail"){
+    alert("非法访问");
+    window.location.href = `/${sourceStr}.html`;
+}else{
+    window.localStorage.setItem("source","claim-detail");
+}
+
 // 给页面按钮绑定点击事件
 addClickListenerOnBtns();
 
@@ -110,7 +119,7 @@ function addClickListenerOnBtns() {
                 // 点击首页按钮跳转到首页
                 // 此用户登录状态修改(退出登录)
                 clearStorage();
-                window.location.href = "http://127.0.0.1:5500/";
+                window.location.href = "/index.html";
 
             } else if (idStr === "go-login") {
                 // 点击服务卡激活按钮跳转到激活页面

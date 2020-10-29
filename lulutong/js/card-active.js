@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-22 11:42:57
- * @LastEditTime: 2020-10-27 16:32:49
+ * @LastEditTime: 2020-10-29 09:58:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \lulutong\js\card-active.js
@@ -11,6 +11,8 @@ var buttonDOM = document.querySelector(".button");//下一步
 
 // 清除缓存
 clearStorage();
+window.localStorage.setItem("source","card-active");
+resetAuthCodeImg();
 
 // 给下一步按钮绑定点击事件
 addListenerOnNextBtn();
@@ -20,6 +22,7 @@ function addListenerOnNextBtn() {
 
         // 通过接口从数据库查询
         request();
+        
 
     });
 }

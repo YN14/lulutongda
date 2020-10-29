@@ -1,0 +1,42 @@
+/* 步骤 */
+.step{
+    display: flex;
+    font-size: 12px;
+}
+.step>li{
+    flex-grow: 1;
+}
+.step span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    text-align: center;
+    background-color: rgb(153,153,153);
+    border-radius: 50%;
+    color: #fff;
+}
+.step .now{
+    background-color: rgb(27,172,5);
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+}
+.success{
+    margin-top: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+.button{
+    margin: 0 20px;
+}
+.exit{
+    background-color: rgb(157,160,157);
+    margin-bottom: 150px;
+}

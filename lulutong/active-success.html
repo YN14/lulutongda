@@ -1,0 +1,66 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-27 17:47:44
+ * @LastEditTime: 2020-10-27 18:49:31
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \lulutong\active-success.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>填写信息</title>
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/active-success.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="top-title">
+            <ul class="step">
+                <li>
+                    <span class="circle">1</span>
+                    卡号密码
+                </li>
+                <li>
+                    <span class="circle">2</span>
+                    阅读条款
+                </li>
+                <li>
+                    <span class="circle">3</span>
+                    信息填写
+                </li>
+                <li>
+                    <span class="circle now">4</span>
+                    完成激活
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            <div class="success">
+                <img src="./images/success.png" alt="">
+                <h4 class="msg">激活成功</h4>
+            </div>
+            <a id="go-insurance-msg" class="button" href="javascript:;">查看投保信息</a>
+            <a id="exit" class="button exit" href="javascript:;">安全退出</a>
+        </div>
+        <div class="exit-alert-box">
+            <div class="my-exit-alert">
+                <p class="title">你已点击安全退出</p>
+                <div class="buttons">
+                    <a class="button" id="go-index" href="javascript:;">首页</a>
+                    <a class="button" id="go-active" href="javascript:;">服务卡激活</a>
+                    <a class="button" id="cancel" href="javascript:;">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/judge-clear-storage.js"></script>
+    <script src="./js/active-success.js"></script>
+</body>
+
+</html>

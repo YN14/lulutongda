@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-22 16:33:02
- * @LastEditTime: 2020-10-27 15:53:04
+ * @LastEditTime: 2020-10-28 08:38:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \lulutong\js\reg.js
@@ -82,4 +82,5 @@ function RegQ() {
         var isMatch = /^[1-9][0-9]{11}$/.test(str);
         return isMatch;
     }
+
 }

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-23 13:49:47
- * @LastEditTime: 2020-10-27 16:18:37
+ * @LastEditTime: 2020-10-29 10:08:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \lulutong\js\login-public.js
@@ -112,10 +112,10 @@ function addClickListenerOnCardPwdImg(){
         let vNum = Math.floor(Math.random() * 20);
         if(type === "password"){
             cardPwdDOM.type = "text";
-            cardPwdImg.src = `../images/pwdVisible.png?v=${vNum}`;
+            cardPwdImg.src = `../images/pwdInvisible.png?v=${vNum}`;
         }else if(type === "text"){
             cardPwdDOM.type = "password";
-            cardPwdImg.src = `../images/pwdInvisible.png?v=${vNum}`;
+            cardPwdImg.src = `../images/pwdVisible.png?v=${vNum}`;
         }
     });
 }

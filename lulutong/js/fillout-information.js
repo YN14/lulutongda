@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-22 14:34:32
- * @LastEditTime: 2020-10-27 16:32:58
+ * @LastEditTime: 2020-10-29 10:10:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \lulutong\js\fillout-information.js
@@ -15,6 +15,7 @@ var IDNumDOM = document.querySelectorAll(".ID-num");
 var emailDOM = document.querySelectorAll(".email");
 var phoneDOM = document.querySelectorAll(".phone");
 var addDOM = document.querySelectorAll(".add");
+var birthDateDOM = document.querySelectorAll(".birth-date");
 
 var insureJSON = {};
 var insurantJSON = {};
@@ -23,8 +24,18 @@ var nameClick = 0;
 // 判断缓存是否有内容
 var cardNum = judgeStorage();
 document.querySelector(".card-num").innerHTML = cardNum;
+// 检测源-readClause
+var sourceStr = judgeStorageSource();
+if(sourceStr != "read-clause" && sourceStr!="fillout-information"){
+    alert("非法访问");
+    window.location.href = `/${sourceStr}.html`;
+}else{
+    window.localStorage.setItem("source","fillout-information");
+}
 
-// 给姓名、身份证号、邮箱、电话号码绑定监听事件
+
+
+// 给姓名、身份证号、邮箱、电话号码、地址绑定监听事件
 addListenerOnDOM();
 
 // 选择与投保人关系时，若是投保人本人，自动填写受保人信息
@@ -76,9 +87,15 @@ function nameDOMOnBlur(dom) {
             if (name === "") {
                 document.querySelector("." + idStr + "-erro").innerHTML = "请填写姓名";
             } else {
-                if (relationTypeDOM.value === "本人") {
-                    document.querySelector("#insurant-name").value = name;
+                let flag = judgeName(name);
+                if (flag) {
+                    if (relationTypeDOM.value === "本人") {
+                        document.querySelector("#insurant-name").value = name;
+                    }
+                }else{
+                    document.querySelector("." + idStr + "-erro").innerHTML = "姓名不能为数字";
                 }
+
             }
         }
         if (idStr === "insurant-name") {
@@ -120,6 +137,10 @@ function IDNumDOMOnBlur(dom) {
                     }
                 }
 
+                if(idStr === "insure" && ((age + 1) < 18 || age >= 70)){
+                    document.querySelector("." + idStr + "-erro").innerHTML = "投保人年龄不在18-70周岁之间";
+                }
+
                 if (idStr === "insurant" && ((age + 1) < 18 || age >= 70)) {
                     document.querySelector("." + idStr + "-erro").innerHTML = "被保人年龄不在18-70周岁之间";
                 }
@@ -141,6 +162,19 @@ function DOMOnFocus(dom) {
 
         }
         document.querySelector("." + idStr + "-erro").innerHTML = " ";
+        if(idStr === "insure-ID"){
+            birthDateDOM[0].removeAttribute("readOnly");
+            if(relationTypeDOM.value === "本人"){
+                birthDateDOM[1].removeAttribute("readOnly");
+            }
+            
+        }else if(idStr === "insurant-ID"){
+            birthDateDOM[1].removeAttribute("readOnly");
+            if(relationTypeDOM.value === "本人"){
+                birthDateDOM[0].removeAttribute("readOnly");
+            }
+            
+        }
     });
 }
 
@@ -201,6 +235,11 @@ function addDOMOnBlur(dom) {
     });
 }
 
+function judgeName(nameStr) {
+    let flag = new RegExp("[0-9]").test(nameStr);
+    return !flag;
+}
+
 function jugeIDNum(idNumStr) {
     let reg = new RegQ();
     let flag = reg.idNumber(idNumStr);
@@ -249,6 +288,17 @@ function autofillBirthDate(IDNumStr, idStr) {
     let birthDate = toDate(birthDateZoneBit);
 
     document.querySelector("." + idStr + "-birth-date").value = birthDate;
+
+    if(idStr === "insure"){
+        // console.log(birthDateDOM[0]);
+        birthDateDOM[0].setAttribute("readOnly",true);
+        if(relationTypeDOM.value === "本人"){
+            birthDateDOM[1].setAttribute("readOnly",true);
+        }
+    }else if(idStr === "insurant"){
+        // console.log(birthDateDOM[0]);
+        birthDateDOM[1].setAttribute("readOnly",true);
+    }
 };
 function autofillAge(IDNumStr, idStr) {
     idStr = idStr.split("-")[0];
@@ -307,9 +357,11 @@ function selectRelationType() {
                     insurantSexDOM[i].checked = true;
                 }
             }
+            birthDateDOM[1].setAttribute("readOnly",true);
         } else {
             // 清除数据
             insurantJSON = {};
+            birthDateDOM[1].removeAttribute("readOnly");
             let insurantDOM = document.querySelectorAll(".insurant");
             for (let i = 0; i < insurantDOM.length; i++) {
                 if (insurantDOM[i].getAttribute("name") !== "insurant-sex") {
@@ -341,7 +393,7 @@ function addEventListenerOnBtns() {
         buttonsDOM[i].addEventListener("click", function () {
             let idStr = buttonsDOM[i].getAttribute("id");
 
-            if (idStr === "go-insurance-msg") {
+            if (idStr === "submit") {
                 //判断页面的信息是否填写完整且均正确
                 let mustFillDone = isAllFill();
                 if (mustFillDone === true) {
@@ -355,7 +407,7 @@ function addEventListenerOnBtns() {
             } else if (idStr === "go-index") {
                 // 点击首页按钮跳转到首页
                 clearStorage();
-                window.location.href = "http://127.0.0.1:5500/";
+                window.location.href = "/index.html";
 
             } else if (idStr === "go-active") {
                 // 点击服务卡激活按钮跳转到激活页面
@@ -378,11 +430,19 @@ function setDateRange() {
     let minDate = new Date();
     let maxDate = new Date();
     minDate.setDate(minDate.getDate() + 2);
-    maxDate.setDate(maxDate.getDate() + 62);
+    maxDate.setDate(maxDate.getDate() + 92);
 
-    effectiveDateDOM.min = minDate.getFullYear() + "-" + (minDate.getMonth() + 1) + "-" + minDate.getDate();
-    effectiveDateDOM.max = maxDate.getFullYear() + "-" + (maxDate.getMonth() + 1) + "-" + maxDate.getDate();
-    effectiveDateDOM.value = minDate.getFullYear() + "-" + (minDate.getMonth() + 1) + "-" + minDate.getDate();
+    let minYear = minDate.getFullYear();
+    let minMonth = minDate.getMonth() + 1 < 10 ? "0" + (minDate.getMonth() + 1) : (minDate.getMonth() + 1);
+    let minDay = minDate.getDate() < 10 ? "0" + minDate.getDate() : minDate.getDate();
+
+    let maxYear = maxDate.getFullYear();
+    let maxMonth = maxDate.getMonth() + 1 < 10 ? "0" + (maxDate.getMonth() + 1) : (maxDate.getMonth() + 1);
+    let maxDay = maxDate.getDate() < 10 ? "0" + maxDate.getDate() : maxDate.getDate();
+
+    effectiveDateDOM.min = minYear + "-" + minMonth + "-" + minDay;
+    effectiveDateDOM.max = maxYear + "-" + maxMonth + "-" + maxDay;
+    effectiveDateDOM.value = effectiveDateDOM.min;
 
     effectiveDateTip.innerHTML = "生效期限选择:" + effectiveDateDOM.min + "至" + effectiveDateDOM.max;
 }
@@ -459,7 +519,7 @@ function getInsurantInformationFromPage() {
 }
 
 function saveInformation() {
-    
+
     myajax({
         "method": "post",
         "url": config.apiUrl + "updateCard.php",
@@ -469,7 +529,8 @@ function saveInformation() {
         "success": function (re) {
             if (re.state === true) {
                 // 填写完整跳转到投保信息页
-                window.location.href = "/insurance-msg.html";
+                // window.localStorage.setItem("source","fillout-information");
+                window.location.href = "/active-success.html";
             } else {
 
             }

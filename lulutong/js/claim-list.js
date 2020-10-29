@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-22 14:55:15
- * @LastEditTime: 2020-10-27 14:03:09
+ * @LastEditTime: 2020-10-29 10:09:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \lulutong\js\claim-list.js
@@ -11,6 +11,14 @@ var exitAlertDOM = document.querySelector(".exit-alert-box");
 
 // 判断缓存是否有内容
 var cardNum = judgeStorage();
+// 检测源-claimDetail\insuranceMsg\calimLogin
+var sourceStr = judgeStorageSource();
+if(sourceStr != "card-detail" && sourceStr != "insurance-msg" && sourceStr != "login-claim" && sourceStr != "claim-list"){
+    alert("非法访问");
+    window.location.href = `/${sourceStr}.html`;
+}else{
+    window.localStorage.setItem("source","claim-list");
+}
 
 // 给页面按钮绑定点击事件
 addClickListenerOnBtns();
@@ -74,6 +82,7 @@ function addClickListenerOnListItem(){
         claimListItemDOM[i].addEventListener("click",function(){
             let causeId = claimListItemDOM[i].getAttribute("id").split("-")[1];
             window.localStorage.setItem("causeId",causeId);
+            
             window.location.href = "/claim-detail.html";
         });
     }
@@ -85,6 +94,7 @@ function addClickListenerOnBtns() {
             let idStr = buttonsDOM[i].getAttribute("id");
 
             if (idStr === "go-insurance-msg") {
+                // window.localStorage.setItem("source","claim-list");
                 // 点击查看投保信息按钮 跳转到投保信息页
                 window.location.href = "/insurance-msg.html";
             } else if (idStr === "exit") {
@@ -94,7 +104,7 @@ function addClickListenerOnBtns() {
                 // 点击首页按钮跳转到首页
                 // 此用户登录状态修改(退出登录)
                 clearStorage();
-                window.location.href = "http://127.0.0.1:5500/";
+                window.location.href = "/index.html";
 
             } else if (idStr === "go-login") {
                 // 点击服务卡激活按钮跳转到激活页面

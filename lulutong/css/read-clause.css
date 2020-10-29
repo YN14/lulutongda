@@ -45,6 +45,10 @@ iframe{
     width: 100%;
     border: none;
 }
+a{
+    text-decoration: none;
+    margin-left: 10px;
+}
 
 .clause-list>li{
     padding: 10px 20px;
